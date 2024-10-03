@@ -1,0 +1,112 @@
+﻿<Window x:Class="_03._10._24_2_zadanie.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_03._10._24_2_zadanie"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        
+        <Style x:Key="LargeTextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+        </Style>
+
+        
+        <Style x:Key="SmallTextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="Normal" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Background" Value="#F0F0F0" />
+            <Setter Property="Foreground" Value="DarkGray" />
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+        </Style>
+
+        
+        <Style x:Key="SectionStyle" TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Vertical" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+
+        
+        <Style x:Key="AlternativeLargeTextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Background" Value="#FFF0E68C" />
+            <Setter Property="Foreground" Value="DarkGreen" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+        </Style>
+    </Window.Resources>
+
+    <DockPanel>
+        
+        <ToolBar DockPanel.Dock="Top">
+            <Button Content="Изменить стиль большого TextBox" Click="ChangeLargeTextBoxStyle_Click" />
+        </ToolBar>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            
+            <Border Grid.Column="0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FFDEE9FF" Offset="0" />
+                        <GradientStop Color="#FF97C1FF" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Style="{StaticResource SectionStyle}">
+                        <TextBox Name="LeftMainTextBox" Style="{StaticResource LargeTextBoxStyle}" 
+                                 AcceptsReturn="True" TextWrapping="Wrap" 
+                                 Text="Введите текст здесь"/>
+                        <TextBox Style="{StaticResource SmallTextBoxStyle}" 
+                                 AcceptsReturn="True" TextWrapping="Wrap" 
+                                 Text="Дополнительный текст 1" />
+                        <TextBox Style="{StaticResource SmallTextBoxStyle}" 
+                                 AcceptsReturn="True" TextWrapping="Wrap" 
+                                 Text="Дополнительный текст 2" />
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+
+            
+            <Border Grid.Column="1">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FFDEE9FF" Offset="0" />
+                        <GradientStop Color="#FF97C1FF" Offset="1" />
+                    </LinearGradientBrush>
+                </Border.Background>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Style="{StaticResource SectionStyle}">
+                        <TextBox Name="RightMainTextBox" Style="{StaticResource LargeTextBoxStyle}" 
+                                 AcceptsReturn="True" TextWrapping="Wrap" 
+                                 Text="Введите текст здесь"/>
+                        <TextBox Style="{StaticResource SmallTextBoxStyle}" 
+                                 AcceptsReturn="True" TextWrapping="Wrap" 
+                                 Text="Дополнительный текст A" />
+                        <TextBox Style="{StaticResource SmallTextBoxStyle}" 
+                                 AcceptsReturn="True" TextWrapping="Wrap" 
+                                 Text="Дополнительный текст B" />
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+    </DockPanel>
+</Window>
